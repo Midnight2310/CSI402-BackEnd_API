@@ -15,7 +15,8 @@ app.use(helmet());
 // use try catch
 app.post("/purchase/collectPoints" , (req:Request,res:Response) =>{
     try{
-        const {studentId,amount} = req.body
+        const studentId: number = Number(req.body.studentId);
+        const amount: number = Number(req.body.amount);
         let currentPoints = 1000;
         const pointsEarned = Math.floor(amount / 100) * 10;
         const totalPoints = currentPoints + pointsEarned;
